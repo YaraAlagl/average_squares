@@ -23,7 +23,7 @@ def average_of_squares(list_of_numbers, list_of_weights=None):
             "weights and numbers must have same length"
         effective_weights = list_of_weights
     else:
-        effective_weights = [1] * len(list_of_numbers)
+        effective_weights = [1] * len(list_of_weights)
     squares = [
         weight * number * number
         for number, weight
