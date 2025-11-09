@@ -10,11 +10,18 @@ Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
 documentation for details.
 
+<<<<<<< HEAD
 This project computes the weighted averages of squares and convert strings to numbers. 
 This documentation shows how the code works and provides usage examples.
+=======
+>>>>>>> aec5f68 (Created docs folder and ran Sphinx quickstart)
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+<<<<<<< HEAD
    
    content/average-squares-docs
+=======
+
+>>>>>>> aec5f68 (Created docs folder and ran Sphinx quickstart)

@@ -5,9 +5,12 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+<<<<<<< HEAD
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))  # allows Sphinx to find average_squares
+=======
+>>>>>>> aec5f68 (Created docs folder and ran Sphinx quickstart)
 
 project = 'Average Squares'
 copyright = '2025, Yara Alagl'
@@ -17,10 +20,14 @@ release = '0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
+<<<<<<< HEAD
 extensions = [
     sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
 ]
+=======
+extensions = []
+>>>>>>> aec5f68 (Created docs folder and ran Sphinx quickstart)
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
