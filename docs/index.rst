@@ -16,4 +16,4 @@ This documentation shows how the code works and provides usage examples.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   content/average-squares-docs
