@@ -49,6 +49,11 @@ def convert_numbers(list_of_strings):
     # ...then convert each substring into a number
     return [float(number_string) for number_string in all_numbers]
 
+def read_file(filename):
+    """Read a text file and return its lines."""
+    with open(filename, "r") as f:
+        return f.readlines()
+
 
 if __name__ == "__main__":
     #numbers_strings = ["1","2","4"]
@@ -58,16 +63,36 @@ if __name__ == "__main__":
     #result = average_of_squares(numbers, weights)
     #print(result)
 
-    parser = ArgumentParser(description="Return the weighted average of a list of values")
-    parser.add_argument("numbers", nargs="+", help="List of numbers")
-    parser.add_argument('-w', '--weights', nargs="+", help="List of weights (optional)")
+    parser = argparse.ArgumentParser(
+        description="Compute weighted sum of squares from input files."
+    )
+
+    parser.add_argument(
+        "file_numbers",
+        type=str,
+        help="Text file containing numbers"
+    )
+
+    parser.add_argument(
+        "--weights",
+        type=str,
+        required=False,
+        help="Optional text file containing weights"
+    )
+
     args = parser.parse_args()
 
-    numbers = convert_numbers(args.numbers)
+    # Read numbers
+    numbers_strings = read_file(args.file_numbers)
+    numbers = convert_numbers(numbers_strings)
+
+    # Read weights (optional)
     if args.weights:
-        weights = convert_numbers(args.weights)
+        weight_strings = read_file(args.weights)
+        weights = convert_numbers(weight_strings)
     else:
-        weights = None
-        
-    result = average_of_squares(numbers, weights)  
+        weights = None   # default: equally weighted
+
+    # Compute result
+    result = average_of_squares(numbers, weights)
     print(result)
