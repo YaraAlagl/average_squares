@@ -60,9 +60,14 @@ if __name__ == "__main__":
 
     parser = ArgumentParser(description="Return the weighted average of a list of values")
     parser.add_argument("numbers", nargs="+", help="List of numbers")
+    parser.add_argument('-w', '--weights', nargs="+", help="List of weights (optional)")
     args = parser.parse_args()
 
     numbers = convert_numbers(args.numbers)
-    weights = None
+    if args.weights:
+        weights = convert_numbers(args.weights)
+    else:
+        weights = None
+        
     result = average_of_squares(numbers, weights)  
     print(result)
