@@ -74,12 +74,21 @@ if __name__ == "__main__":
         help="Text file containing numbers"
     )
 
-    parser.add_argument(
-        "--weights",
+    group = parser.add_mutually_exclusive_group()
+
+    group.add_argument(
+        "--weights-file",
         type=str,
-        required=False,
-        help="Optional text file containing weights"
+        help="Text file containing weights"
     )
+
+    group.add_argument(
+        "--weights",
+        nargs="+",
+        help="Weights entered directly on the command line (e.g., --weights 0.1 2 0.1)"
+    )
+
+
 
     args = parser.parse_args()
 
@@ -88,11 +97,15 @@ if __name__ == "__main__":
     numbers = convert_numbers(numbers_strings)
 
     # Read weights (optional)
-    if args.weights:
-        weight_strings = read_file(args.weights)
+    if args.weights_file:
+        weight_strings = read_file(args.weights_file)
         weights = convert_numbers(weight_strings)
+
+    elif args.weights:
+        weights = convert_numbers(args.weights)
+
     else:
-        weights = None   # default: equally weighted
+        weights = None
 
     # Compute result
     result = average_of_squares(numbers, weights)
